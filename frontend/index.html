@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShingleID — Asphalt Shingle Identifier</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <rect width="28" height="28" rx="6" fill="#1a4d7c"/>
+          <path d="M4 20L14 8L24 20H4Z" fill="#e8f0fe" opacity="0.9"/>
+          <path d="M7 20L14 11L21 20H7Z" fill="#4a9eed" opacity="0.8"/>
+          <path d="M10 20L14 14L18 20H10Z" fill="#1a4d7c"/>
+        </svg>
+        <span>ShingleID</span>
+      </div>
+      <p class="header__tagline">Professional Asphalt Shingle Color &amp; Condition Identification</p>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="app-layout">
+      <!-- Upload Panel -->
+      <section class="panel panel--upload" id="uploadPanel">
+        <h2 class="panel__title">Upload Roof Photo</h2>
+        <p class="panel__desc">
+          Upload a clear photograph of the roof shingles. Works best with photos taken
+          in natural daylight from a straight-on angle.
+        </p>
+
+        <div class="upload-zone" id="uploadZone" tabindex="0" role="button"
+             aria-label="Upload shingle photo — click or drag and drop">
+          <div class="upload-zone__icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <path d="M24 32V16M24 16L18 22M24 16L30 22" stroke="#4a9eed" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="4" y="36" width="40" height="4" rx="2" fill="#4a9eed" opacity="0.3"/>
+              <path d="M8 36V26a2 2 0 012-2h4M40 36V26a2 2 0 00-2-2h-4"
+                    stroke="#4a9eed" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="upload-zone__label">Drag &amp; drop your photo here</p>
+          <p class="upload-zone__sub">or <span class="upload-zone__link">click to browse</span></p>
+          <p class="upload-zone__hint">JPEG, PNG, WEBP · Max 10MB</p>
+          <input type="file" id="fileInput" accept="image/jpeg,image/jpg,image/png,image/webp"
+                 class="upload-zone__input" aria-hidden="true" tabindex="-1" />
+        </div>
+
+        <div class="preview-area hidden" id="previewArea">
+          <img id="previewImg" class="preview-image" alt="Shingle photo preview" />
+          <div class="preview-actions">
+            <button class="btn btn--secondary" id="changeBtn" type="button">Change Photo</button>
+            <button class="btn btn--primary" id="analyzeBtn" type="button">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 5v3l2 2" stroke="currentColor" stroke-width="1.5"
+                      stroke-linecap="round"/>
+              </svg>
+              Analyze Shingles
+            </button>
+          </div>
+        </div>
+
+        <div class="tips">
+          <h3 class="tips__title">Photo Tips for Best Results</h3>
+          <ul class="tips__list">
+            <li>Take photo in natural daylight (avoid harsh midday shadows)</li>
+            <li>Aim for a close-up that fills the frame with shingles</li>
+            <li>Avoid photos taken in rain or when shingles are wet</li>
+            <li>Include at least 3–4 full shingle courses for context</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Results Panel -->
+      <section class="panel panel--results" id="resultsPanel">
+        <div class="results-placeholder" id="resultsPlaceholder">
+          <div class="placeholder-icon" aria-hidden="true">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="28" stroke="#2a4a6e" stroke-width="2"/>
+              <path d="M16 44L32 20L48 44H16Z" stroke="#2a4a6e" stroke-width="2"
+                    stroke-linejoin="round" fill="none"/>
+              <path d="M22 44L32 28L42 44H22Z" fill="#1a3a5e" opacity="0.5"/>
+            </svg>
+          </div>
+          <p class="placeholder-text">Upload a photo to identify shingle color and condition</p>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-state hidden" id="loadingState">
+          <div class="spinner" aria-label="Analyzing shingles...">
+            <div class="spinner__ring"></div>
+          </div>
+          <p class="loading-text">Analyzing shingles...</p>
+          <p class="loading-sub">Comparing against manufacturer color database</p>
+        </div>
+
+        <!-- Results Card -->
+        <div class="results-card hidden" id="resultsCard">
+          <div class="results-header">
+            <div class="color-swatch-large" id="colorSwatchLarge"></div>
+            <div class="results-primary">
+              <div class="color-name-label">Identified Color</div>
+              <div class="color-name" id="colorName">—</div>
+              <div class="color-meta" id="colorMeta">—</div>
+            </div>
+          </div>
+
+          <div class="results-grid">
+            <div class="result-item">
+              <div class="result-item__label">Condition</div>
+              <div class="result-item__value">
+                <span class="condition-badge" id="conditionBadge">—</span>
+              </div>
+            </div>
+
+            <div class="result-item">
+              <div class="result-item__label">Overall Confidence</div>
+              <div class="result-item__value">
+                <div class="confidence-bar-wrap">
+                  <div class="confidence-bar" id="confidenceBar">
+                    <div class="confidence-bar__fill" id="confidenceBarFill"></div>
+                  </div>
+                  <span class="confidence-pct" id="confidencePct">—</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reasoning-section">
+            <div class="reasoning-item">
+              <div class="reasoning-item__title">Color Analysis</div>
+              <div class="reasoning-item__text" id="colorReasoning">—</div>
+            </div>
+            <div class="reasoning-item">
+              <div class="reasoning-item__title">Condition Assessment</div>
+              <div class="reasoning-item__text" id="conditionReasoning">—</div>
+            </div>
+          </div>
+
+          <div class="alternatives-section hidden" id="alternativesSection">
+            <div class="alternatives-title">Alternative Matches</div>
+            <div class="alternatives-list" id="alternativesList"></div>
+          </div>
+
+          <div class="review-warning hidden" id="reviewWarning">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 2L14 13H2L8 2Z" stroke="#c47a00" stroke-width="1.5"
+                    stroke-linejoin="round" fill="none"/>
+              <path d="M8 6v3" stroke="#c47a00" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="11" r="0.75" fill="#c47a00"/>
+            </svg>
+            Low confidence — consider taking a clearer photo or consulting the alternatives above
+          </div>
+
+          <div class="results-footer">
+            <button class="btn btn--secondary btn--full" id="tryAnotherBtn" type="button">
+              Analyze Another Photo
+            </button>
+          </div>
+        </div>
+
+        <!-- Error State -->
+        <div class="error-state hidden" id="errorState">
+          <div class="error-icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="20" stroke="#d94f4f" stroke-width="2"/>
+              <path d="M16 16L32 32M32 16L16 32" stroke="#d94f4f" stroke-width="2"
+                    stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="error-title" id="errorTitle">Analysis failed</p>
+          <p class="error-msg" id="errorMsg">Please try again.</p>
+          <button class="btn btn--secondary" id="retryBtn" type="button">Try Again</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>ShingleID uses AI vision analysis trained on manufacturer color databases from
+       GAF, CertainTeed, Owens Corning, IKO, Atlas, TAMKO, and Malarkey.</p>
+  </footer>
+
+  <script src="/js/upload.js"></script>
+  <script src="/js/api.js"></script>
+  <script src="/js/results.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
