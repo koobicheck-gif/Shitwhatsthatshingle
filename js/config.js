@@ -3,16 +3,16 @@
 /**
  * ShingleID frontend configuration.
  *
- * When running locally via `uvicorn backend.main:app`, the API is served
- * from the same origin so API_BASE_URL defaults to '/api'.
- *
- * When deployed to GitHub Pages (no backend), set this to the URL of your
- * deployed backend, e.g.:
- *   window.SHINGLEID_API_URL = 'https://your-backend.fly.dev';
- *
- * You can also set it via a <script> tag before this file loads:
- *   <script>window.SHINGLEID_API_URL = 'https://...';</script>
+ * ANTHROPIC_API_KEY: Set at runtime from localStorage (user is prompted on first visit).
+ * COLORS_BASE_URL: Base URL for fetching data/colors.json.
  */
 const CONFIG = {
-  API_BASE_URL: (window.SHINGLEID_API_URL || '').replace(/\/$/, '') + '/api',
+  get ANTHROPIC_API_KEY() {
+    return localStorage.getItem('shingleid_api_key') || '';
+  },
+  set ANTHROPIC_API_KEY(key) {
+    if (key) localStorage.setItem('shingleid_api_key', key);
+    else localStorage.removeItem('shingleid_api_key');
+  },
+  COLORS_BASE_URL: '',
 };

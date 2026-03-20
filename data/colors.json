@@ -1,0 +1,168 @@
+{
+  "gaf": {
+    "Timberline HDZ": [
+      "Appalachian Sky", "Barkwood", "Birchwood", "Bluetide", "Charcoal",
+      "Colonial Slate", "Copper Canyon", "Driftwood", "Fox Hollow Gray",
+      "Golden Cedar", "Hickory", "Hunter Green", "Lifetime Shakewood",
+      "Mission Brown", "Mossy Oak", "Natural Shadow", "Oyster Gray",
+      "Pewter Gray", "Reflector Series Charcoal", "Royal Slate",
+      "Shakewood", "Silver Lining", "Slate", "Stonewood", "Sunrise",
+      "Weathered Wood", "Williamsburg Slate", "Wood Smoke"
+    ],
+    "Timberline CS": [
+      "Barkwood", "Charcoal", "Fox Hollow Gray", "Golden Cedar", "Hickory",
+      "Mission Brown", "Oyster Gray", "Pewter Gray", "Shakewood", "Slate",
+      "Weathered Wood"
+    ],
+    "Timberline UHDZ": [
+      "Barkwood", "Charcoal", "Fox Hollow Gray", "Golden Cedar", "Hickory",
+      "Mission Brown", "Oyster Gray", "Pewter Gray", "Shakewood", "Slate",
+      "Weathered Wood", "Williamsburg Slate"
+    ],
+    "Royal Sovereign": [
+      "Black", "Blue", "Brown", "Charcoal", "Dove Gray", "Green",
+      "Glacier White", "Russet", "Slate", "White"
+    ],
+    "Camelot II": [
+      "Antique Slate", "Autumn Harvest", "Barkwood", "Charcoal", "Copper Canyon",
+      "Fox Hollow Gray", "Golden Cedar", "Hickory", "Mission Brown",
+      "Oyster Gray", "Pewter Gray", "Shakewood", "Weathered Wood"
+    ]
+  },
+  "certainteed": {
+    "Landmark": [
+      "Aged Bark", "Autumn Blend", "Black", "Burnt Sienna", "Charcoal Black",
+      "Cobblestone", "Colonial Slate", "Driftwood", "Georgetown Gray",
+      "Half Moon", "Heather Blend", "Highland Slate", "Hunter Green",
+      "Landmark Taupe", "Moire Black", "Mountain Cedar", "New Charcoal",
+      "Pewter", "Resawn Shake", "Rustic Black", "Rustic Brown",
+      "Rustic Cedar", "Rustic Slate", "Shadow Gray", "Sienna",
+      "Silver Birch", "Thunderstorm Gray", "Weathered Wood", "Weatheredwood",
+      "White"
+    ],
+    "Landmark Premium": [
+      "Aged Bark", "Autumn Blend", "Burnt Sienna", "Cobblestone",
+      "Colonial Slate", "Driftwood", "Georgetown Gray", "Half Moon",
+      "Heather Blend", "Highland Slate", "Hunter Green", "Landmark Taupe",
+      "Moire Black", "Mountain Cedar", "New Charcoal", "Pewter",
+      "Resawn Shake", "Shadow Gray", "Silver Birch", "Thunderstorm Gray",
+      "Weathered Wood"
+    ],
+    "Landmark Pro": [
+      "Aged Bark", "Burnt Sienna", "Cobblestone", "Colonial Slate",
+      "Driftwood", "Georgetown Gray", "Half Moon", "Heather Blend",
+      "Highland Slate", "Hunter Green", "Moire Black", "Mountain Cedar",
+      "New Charcoal", "Pewter", "Shadow Gray", "Silver Birch",
+      "Thunderstorm Gray", "Weathered Wood"
+    ],
+    "Presidential Shake TL": [
+      "Aged Bark", "Autumn Blend", "Cobblestone", "Colonial Slate",
+      "Georgetown Gray", "Half Moon", "Heather Blend", "Highland Slate",
+      "Moire Black", "Mountain Cedar", "New Charcoal", "Shadow Gray",
+      "Silver Birch", "Thunderstorm Gray", "Weathered Wood"
+    ],
+    "Landmark Solaris": [
+      "Cobblestone", "Georgetown Gray", "Moire Black", "Shadow Gray",
+      "Weathered Wood"
+    ]
+  },
+  "owens_corning": {
+    "Duration": [
+      "Aged Cedar", "Antique Silver", "Brownwood", "Chateau Green",
+      "Desert Tan", "Driftwood", "Estate Gray", "Fox Hollow Gray",
+      "Harbor Blue", "Hearthstone", "Onyx Black", "Quarry Gray",
+      "Shasta White", "Sierra Gray", "Slate", "Summer Harvest",
+      "Teak", "Terra Cotta"
+    ],
+    "TruDefinition Duration": [
+      "Aged Cedar", "Antique Silver", "Brownwood", "Chateau Green",
+      "Desert Tan", "Driftwood", "Estate Gray", "Fox Hollow Gray",
+      "Harbor Blue", "Hearthstone", "Onyx Black", "Pacific Wave",
+      "Quarry Gray", "Shasta White", "Sierra Gray", "Slate",
+      "Summer Harvest", "Teak", "Terra Cotta"
+    ],
+    "Oakridge": [
+      "Aged Cedar", "Brownwood", "Desert Tan", "Driftwood",
+      "Estate Gray", "Onyx Black", "Quarry Gray", "Sierra Gray",
+      "Summer Harvest", "Teak"
+    ],
+    "Berkshire": [
+      "Aged Cedar", "Antique Silver", "Brownwood", "Desert Tan",
+      "Driftwood", "Estate Gray", "Fox Hollow Gray", "Harbor Blue",
+      "Onyx Black", "Quarry Gray", "Slate", "Summer Harvest"
+    ],
+    "Woodcrest": [
+      "Aged Cedar", "Brownwood", "Desert Tan", "Driftwood",
+      "Estate Gray", "Onyx Black", "Slate", "Summer Harvest"
+    ]
+  },
+  "iko": {
+    "Cambridge": [
+      "Antique Silver", "Autumn Brown", "Birchwood", "Black Pearl",
+      "Brownwood", "Cambridge Slate", "Charcoal", "Clay", "Dual Black",
+      "Driftwood", "Fox Hollow Gray", "Harvest Gold", "Hunter Green",
+      "Natural Wood", "Nordic Blue", "Oyster Gray", "Rustic Cedar",
+      "Rustic Redwood", "Shakewood", "Silver Gray", "Sunflower"
+    ],
+    "Dynasty": [
+      "Antique Silver", "Birchwood", "Black Pearl", "Charcoal",
+      "Clay", "Driftwood", "Fox Hollow Gray", "Hunter Green",
+      "Natural Wood", "Oyster Gray", "Rustic Cedar", "Shakewood",
+      "Silver Gray", "Storm Gray"
+    ],
+    "Nordic": [
+      "Autumn Brown", "Birchwood", "Black Pearl", "Charcoal",
+      "Clay", "Driftwood", "Hunter Green", "Oyster Gray",
+      "Rustic Cedar", "Silver Gray"
+    ],
+    "Crowne Slate": [
+      "Antique Silver", "Charcoal", "Clay", "Driftwood",
+      "Fox Hollow Gray", "Oyster Gray", "Shakewood", "Silver Gray"
+    ]
+  },
+  "atlas": {
+    "StormMaster Shake": [
+      "Appalachian Gray", "Autumn Harvest", "Barkwood", "Black",
+      "Charcoal", "Chestnut", "Driftwood", "Fieldstone", "Heritage",
+      "Hickory", "Mission Brown", "Pewter", "Pinecone",
+      "Shakewood", "Slate", "Weathered Wood"
+    ],
+    "StormMaster Slate": [
+      "Appalachian Gray", "Black", "Charcoal", "Driftwood",
+      "Fieldstone", "Heritage", "Pewter", "Slate", "Weathered Wood"
+    ],
+    "Pinnacle Pristine": [
+      "Appalachian Gray", "Black", "Charcoal", "Driftwood",
+      "Fieldstone", "Pewter", "Slate", "Weathered Wood"
+    ],
+    "Chalet": [
+      "Appalachian Gray", "Autumn Harvest", "Barkwood", "Black",
+      "Charcoal", "Driftwood", "Heritage", "Pewter",
+      "Shakewood", "Slate", "Weathered Wood"
+    ]
+  },
+  "tamko": {
+    "Heritage": [
+      "Black Walnut", "Buckskin", "Desert Tan", "Estate Gray",
+      "Frontier Brown", "Grayed Timber", "Mountain Gray", "Natural Timber",
+      "Rustic Cedar", "Rustic Slate", "Weathered Wood"
+    ],
+    "Heritage Woodgate": [
+      "Black Walnut", "Desert Tan", "Estate Gray", "Mountain Gray",
+      "Natural Timber", "Weathered Wood"
+    ]
+  },
+  "malarkey": {
+    "Vista": [
+      "Antique Black", "Cobalt Blue", "Colonial Brown", "Driftwood",
+      "Espresso", "Harvest Gold", "Heritage Brown", "Midnight",
+      "Natural Shadow", "Redwood", "Sandstone", "Slate Gray",
+      "Storm", "Weathered Wood"
+    ],
+    "Legacy": [
+      "Antique Black", "Colonial Brown", "Driftwood", "Espresso",
+      "Heritage Brown", "Midnight", "Natural Shadow", "Sandstone",
+      "Slate Gray", "Weathered Wood"
+    ]
+  }
+}

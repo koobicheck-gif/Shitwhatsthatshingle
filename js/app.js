@@ -10,6 +10,8 @@ const App = (() => {
     bindNavigation();
     bindMobileSidebar();
     bindClearHistory();
+    bindApiKeyModal();
+    if (!CONFIG.ANTHROPIC_API_KEY) showApiKeyModal();
   }
 
   // ─── Navigation ───────────────────────────────────────────────────────────
@@ -122,6 +124,44 @@ const App = (() => {
     }
   }
 
+  // ─── API Key Modal ────────────────────────────────────────────────────────
+  function bindApiKeyModal() {
+    const saveBtn = document.getElementById('saveApiKeyBtn');
+    if (saveBtn) saveBtn.addEventListener('click', saveApiKey);
+
+    const input = document.getElementById('apiKeyInput');
+    if (input) input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') saveApiKey();
+    });
+  }
+
+  function showApiKeyModal() {
+    const modal = document.getElementById('apiKeyModal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      const input = document.getElementById('apiKeyInput');
+      if (input) input.value = CONFIG.ANTHROPIC_API_KEY || '';
+      setTimeout(() => input && input.focus(), 50);
+    }
+  }
+
+  function saveApiKey() {
+    const input = document.getElementById('apiKeyInput');
+    const errEl = document.getElementById('apiKeyError');
+    const key = (input ? input.value.trim() : '');
+    if (!key.startsWith('sk-ant-')) {
+      errEl && errEl.classList.remove('hidden');
+      return;
+    }
+    errEl && errEl.classList.add('hidden');
+    CONFIG.ANTHROPIC_API_KEY = key;
+    document.getElementById('apiKeyModal').classList.add('hidden');
+  }
+
+  // Expose for settings button
+  window.App = window.App || {};
+  window.App.showApiKeyModal = showApiKeyModal;
+
   // ─── Clear history ────────────────────────────────────────────────────────
   function bindClearHistory() {
     const btn = document.getElementById('clearHistoryBtn');
@@ -169,8 +209,8 @@ const App = (() => {
   function show(id) { document.getElementById(id)?.classList.remove('hidden'); }
   function hide(id) { document.getElementById(id)?.classList.add('hidden'); }
 
-  // Expose for upload.js error delegation
-  window.App = { showError };
+  // Expose for upload.js error delegation and settings button
+  window.App = Object.assign(window.App || {}, { showError });
 
   return { init };
 })();
