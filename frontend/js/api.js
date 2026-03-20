@@ -1,7 +1,7 @@
 'use strict';
 
 const API = (() => {
-  const BASE_URL = '/api';
+  const BASE_URL = (typeof CONFIG !== 'undefined' ? CONFIG.API_BASE_URL : '/api');
 
   async function identifyShingle(imageBlob, includeAlternatives = true) {
     const form = new FormData();
