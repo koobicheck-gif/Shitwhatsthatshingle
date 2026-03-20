@@ -430,3 +430,104 @@ body {
 @media (max-width: 420px) {
   .stats-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   API KEY MODAL
+   ============================================================ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 9, 22, 0.88);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.modal__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modal__desc {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 22px;
+}
+
+.modal__field {
+  margin-bottom: 16px;
+}
+
+.modal__label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 7px;
+}
+
+.modal__input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 13px;
+  color: var(--text-primary);
+  font-size: 0.88rem;
+  font-family: ui-monospace, 'Fira Code', monospace;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.modal__input:focus {
+  border-color: var(--accent);
+}
+
+.modal__hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.modal__hint a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.modal__hint a:hover {
+  text-decoration: underline;
+}
+
+.modal__error {
+  font-size: 0.8rem;
+  color: #ef4444;
+  margin-bottom: 12px;
+}
+
+.modal__actions {
+  margin-top: 6px;
+}
