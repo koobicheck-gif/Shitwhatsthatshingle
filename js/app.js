@@ -11,7 +11,6 @@ const App = (() => {
     bindMobileSidebar();
     bindClearHistory();
     bindApiKeyModal();
-    if (!CONFIG.ANTHROPIC_API_KEY) showApiKeyModal();
   }
 
   // ─── Navigation ───────────────────────────────────────────────────────────
@@ -91,9 +90,15 @@ const App = (() => {
     document.getElementById('analyzeBtn').addEventListener('click', runAnalysis);
     document.getElementById('tryAnotherBtn').addEventListener('click', resetToUpload);
     document.getElementById('retryBtn').addEventListener('click', resetToUpload);
+    const demoBtn = document.getElementById('demoBtn');
+    if (demoBtn) demoBtn.addEventListener('click', runDemo);
   }
 
   async function runAnalysis() {
+    if (!CONFIG.ANTHROPIC_API_KEY) {
+      showApiKeyModal();
+      return;
+    }
     const blob = Upload.getBlob();
     if (!blob) {
       showError('No Photo', 'Please select a photo before analyzing.');
@@ -122,6 +127,32 @@ const App = (() => {
 
       showError(title, msg);
     }
+  }
+
+  // ─── Demo mode ────────────────────────────────────────────────────────────
+  const DEMO_RESULT = {
+    color_name: 'Weathered Wood',
+    manufacturer: 'GAF',
+    product_line: 'Timberline HDZ',
+    condition: 'good',
+    final_confidence: 0.87,
+    color_confidence: 0.85,
+    condition_confidence: 0.82,
+    requires_manual_review: false,
+    hex_preview: null,
+    color_reasoning: "The shingles show a warm brown with gray undertones consistent with GAF's Weathered Wood colorway. Granule coverage is uniform with minimal loss.",
+    condition_reasoning: 'Shadow lines between courses are clear but slightly softened, consistent with 3–10 years of normal wear.',
+    alternatives: [
+      { color_name: 'Barkwood',  manufacturer: 'GAF', product_line: 'Timberline HDZ', confidence: 0.71 },
+      { color_name: 'Shakewood', manufacturer: 'GAF', product_line: 'Timberline HDZ', confidence: 0.65 },
+    ],
+    processing_time_ms: 1842,
+  };
+
+  function runDemo() {
+    const result = Object.assign({}, DEMO_RESULT, { timestamp: new Date().toISOString() });
+    Store.add(result);
+    showResults(result);
   }
 
   // ─── API Key Modal ────────────────────────────────────────────────────────

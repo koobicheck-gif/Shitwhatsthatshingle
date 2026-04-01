@@ -74,6 +74,7 @@ const Upload = (() => {
 
     zone.classList.add('hidden');
     preview.classList.remove('hidden');
+    document.getElementById('demoBar')?.classList.add('hidden');
   }
 
   function compressImage(file) {
@@ -108,6 +109,7 @@ const Upload = (() => {
     const input = document.getElementById('fileInput');
     zone.classList.remove('hidden');
     preview.classList.add('hidden');
+    document.getElementById('demoBar')?.classList.remove('hidden');
     input.value = '';
   }
 
